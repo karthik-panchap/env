@@ -1,10 +1,9 @@
 #!/bin/bash
-sudo cd ~/
+cd ~/
 
 # SETUP : Zsh
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install zsh git-core curl fonts-powerline -y
-sudo chsh -s $(which zsh)
 
 # SETUP : Oh-my-zsh : https://ohmyz.sh/#install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -16,6 +15,9 @@ git clone https://github.com/zsh-users/zsh-completions             ${ZSH_CUSTOM:
 
 # INSTALL : p10k plugin
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git   ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# Swith to zsh
+sudo chsh -s $(which zsh)
 
 # Interactive!
 p10k configure
